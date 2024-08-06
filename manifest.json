@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Cine2Nerdle Bot",
+  "version": "1.0",
+  "description": "A bot for playing Cine2Nerdle Battle.",
+  "permissions": ["activeTab", "storage"],
+  "background": {
+  "service_worker": "scripts/background.js",
+  "persistent": false  
+},
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.cinenerdle2.app/battle*"],
+      "js": ["scripts/content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "views/popup.html",
+    "default_icon": {
+      "10": "icon/icon10.png"
+    }
+  },
+  "host_permissions": [
+  "https://api.themoviedb.org/3/*"
+]
+}
+
